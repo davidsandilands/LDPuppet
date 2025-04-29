@@ -74,6 +74,11 @@ The script sends the following custom events to LaunchDarkly:
 - `puppet_error`: An error occurred during the Puppet run.
 - `puppet_cached`: The cached catalog was used.
 
+## Simple Example Deployment
+
+![image](https://github.com/user-attachments/assets/075341c6-9817-4a4f-9b7c-2631a844611c)
+
+
 ## Acknowledgments
 
 - [LaunchDarkly Ruby SDK](https://github.com/launchdarkly/ruby-server-sdk)
