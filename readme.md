@@ -8,7 +8,7 @@ While adding feature flags directly into Puppet code would add an undesirable le
 
 Note this script is not intended to be production ready and is intended as a simple test of the idea.
 
-## benefits
+## Benefits
 
 - Reduce needless catalog generation and reduce Puppet infrastructure hardware requirements
 - Target code deployments beyond just whole environment deployment and isolate critical applications
