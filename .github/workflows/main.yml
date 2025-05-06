@@ -2,7 +2,7 @@ name: LaunchDarkly Code References
 
 on:
   push:
-    branches: [main]  # Adjust as needed
+    branches: [main]
 
 jobs:
   code-refs:
@@ -12,12 +12,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Download ld-find-code-refs
+      - name: Get latest ld-find-code-refs binary
         run: |
-          curl -sSL "$(curl -s https://api.github.com/repos/launchdarkly/ld-find-code-refs/releases/latest \
+          DOWNLOAD_URL=$(curl -s https://api.github.com/repos/launchdarkly/ld-find-code-refs/releases/latest \
             | grep browser_download_url \
             | grep linux-amd64 \
-            | cut -d '"' -f 4)" -o ld-find-code-refs
+            | cut -d '"' -f 4)
+          curl -sSL "$DOWNLOAD_URL" -o ld-find-code-refs
           chmod +x ld-find-code-refs
 
       - name: Run ld-find-code-refs
@@ -30,4 +31,3 @@ jobs:
             --dir . \
             --ref ${{ github.ref_name }} \
             --access-token "$LD_ACCESS_TOKEN"
-            
