@@ -1,0 +1,11 @@
+# Path-based ownership
+# Format: <pattern> <owners>
+
+# Root ownership
+/ @team-platform1
+
+# Specific directories
+
+# Specific files
+
+# Wildcards
