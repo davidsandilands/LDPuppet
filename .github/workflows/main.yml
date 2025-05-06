@@ -12,13 +12,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Get latest ld-find-code-refs binary
+      - name: Download ld-find-code-refs binary (v1.8.6)
         run: |
-          DOWNLOAD_URL=$(curl -s https://api.github.com/repos/launchdarkly/ld-find-code-refs/releases/latest \
-            | grep browser_download_url \
-            | grep linux-amd64 \
-            | cut -d '"' -f 4)
-          curl -sSL "$DOWNLOAD_URL" -o ld-find-code-refs
+          curl -sSL https://github.com/launchdarkly/ld-find-code-refs/releases/download/v1.8.6/ld-find-code-refs-linux-amd64 -o ld-find-code-refs
           chmod +x ld-find-code-refs
 
       - name: Run ld-find-code-refs
@@ -30,4 +26,3 @@ jobs:
             --repo-name "${{ github.repository }}" \
             --dir . \
             --ref ${{ github.ref_name }} \
-            --access-token "$LD_ACCESS_TOKEN"
