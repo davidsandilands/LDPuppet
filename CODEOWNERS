@@ -2,7 +2,7 @@
 # Format: <pattern> <owners>
 
 # Root ownership
-/ @team-platform1 @team-platfomr2
+* @team-platform1 @team-platfomr2
 
 # Specific directories
 
