@@ -2,7 +2,7 @@ name: LaunchDarkly Code References
 
 on:
   push:
-    branches: [main]  # or whichever branch you want to scan from
+    branches: [main]  # Adjust as needed
 
 jobs:
   code-refs:
@@ -12,17 +12,22 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install ld-find-code-refs
+      - name: Download ld-find-code-refs
         run: |
-          curl -s https://raw.githubusercontent.com/launchdarkly/ld-find-code-refs/main/scripts/install.sh | bash
+          curl -sSL "$(curl -s https://api.github.com/repos/launchdarkly/ld-find-code-refs/releases/latest \
+            | grep browser_download_url \
+            | grep linux-amd64 \
+            | cut -d '"' -f 4)" -o ld-find-code-refs
+          chmod +x ld-find-code-refs
 
-      - name: Send code references to LaunchDarkly
+      - name: Run ld-find-code-refs
         env:
           LD_ACCESS_TOKEN: ${{ secrets.LD_ACCESS_TOKEN }}
         run: |
           ./ld-find-code-refs \
-            --proj-key davids-project \
+            --proj-key your-project-key \
             --repo-name "${{ github.repository }}" \
             --dir . \
             --ref ${{ github.ref_name }} \
             --access-token "$LD_ACCESS_TOKEN"
+            
