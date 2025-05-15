@@ -83,4 +83,4 @@ The script sends the following custom events to LaunchDarkly:
 
 - [LaunchDarkly Ruby SDK](https://github.com/launchdarkly/ruby-server-sdk)
 - [Puppet and Facter documentation](https://help.puppet.com/)
-- [Puppet 8 for DevOps Engingeers](https://www.packtpub.com/en-gb/product/puppet-8-for-devops-engineers-9781803235455)
+- [Puppet 8 for DevOps Engineers](https://www.packtpub.com/en-gb/product/puppet-8-for-devops-engineers-9781803235455)
