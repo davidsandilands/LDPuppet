@@ -4,9 +4,9 @@ This repository contains a Ruby script, `ld_fresh_catalog.rb`, designed to integ
 
 ## Overview
 
-While adding feature flags directly into Puppet code would add an undesirable level of complecity, controlling the deployment of code in an environment would seem a practicle approach. The script determines whether to run Puppet with a fresh catalog or a cached catalog based on a LaunchDarkly feature flag. It extracts trusted facts from the Puppet node's certificate to allow for targeted deployment and sends custom events to LaunchDarkly for tracking to allow for the potential of guardced rollouts.
+While adding feature flags directly into Puppet code would add an undesirable level of complexity, controlling the deployment of code in an environment would seem a practical approach. The script determines whether to run Puppet with a fresh catalog or a cached catalog based on a LaunchDarkly feature flag. It extracts trusted facts from the Puppet node's certificate to allow for targeted deployment and sends custom events to LaunchDarkly for tracking to allow for the potential of guardced rollouts.
 
-Note this script is not intended to be production ready and is intended as a simple test of the idea.
+Note that this script is not intended to be production-ready and is provided as a simple test of the idea
 
 ## Benefits
 
@@ -31,8 +31,8 @@ Note this script is not intended to be production ready and is intended as a sim
 
 ## Installation
 
-1. Place the `ld_fresh_catalog.rb` as an executable script each node to be controlled
-2. Configure a mechanism to run the script such as cron or a for loop on certnames if testing on a single server.
+1. Place the ld_fresh_catalog.rb script as an executable on each node to be controlled.
+2. Configure a mechanism to run the script, such as using cron or a for loop on certnames, if testing on a single server.
 3. Configure the targeting for the `fresh-catalog` flag as required
 
 Collecting workspace informationHere is a `README.md` template for your folder:
